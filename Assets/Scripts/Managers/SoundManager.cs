@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
 public enum SingleAudioType {
-    test1,
+    korvstånd,
     test2,
-    test3
+    test3,
+    test4,
+    test5
 }
 
 public enum RandomAudioType {
@@ -59,11 +61,14 @@ public class SoundManager : MonoBehaviour
         int singleNameCount = singleAudioNames.Length;
         int listCreate = singleNameCount - singleAudioCount;
 
-        for(int i = 0; i <= listCreate; i++) {
-            //singleAudios.Add()
+        for(int i = 0; i < listCreate; i++) {
+            SingleAudio temp = new();
+            singleAudios.Add(temp);
         }
 
-
+        for(int i = 0; i < singleAudios.Count; i++) {
+            singleAudios[i].name = singleAudioNames[i];
+        }
     }
 
     public void Awake() {
