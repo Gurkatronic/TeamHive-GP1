@@ -4,18 +4,47 @@ using System.Collections.Generic;
 using Random = UnityEngine.Random;
 using Unity.Mathematics;
 
+public enum PlayerSoundType {
+    Hurt,
+    Dead,
+    Ragemode,
+    Victory,
+    Lost,
+    CharacterSelect
+
+
+}
+
+[Serializable]
+public class PlayerSounds {
+    [SerializeField] public Dictionary<PlayerSoundType, AudioClip> soundDict;
+
+
+}
 public enum SingleAudioType {
-    korv,
-    test2,
-    test3,
-    test4,
-    test5
+    BowlingStrike,
+    BackgroundHum,
+    GhostScream,
+    ZombieMoan,
+    ComboFail,
+    ComboSuccess,
+
 }
 
 public enum RandomAudioType {
-    random1,
-    random2,
-    random3
+    Punch,
+    Shove,
+    Wind,
+    Whiff,
+    GuitarRiff,
+    ZombieWalk,
+    ZombieHit,
+    GhostHit,
+    ZombieHittingSomeone,
+    GhostHittingSomeone,
+
+
+
 }
 
 public class SoundManager : MonoBehaviour
@@ -30,6 +59,7 @@ public class SoundManager : MonoBehaviour
     public class RandomAudio {
         [HideInInspector] public string name;
         public AudioClip[] audioClips;
+
     }
     public static SoundManager Instance;
     [Header("Lists fills based on the amount of types. Just attach audiofiles.")]
@@ -52,7 +82,7 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        AudioClip playClip = audioClips[Random.Range(0, audioClips.Length - 1)];
+        AudioClip playClip = audioClips[Random.Range(0, audioClips.Length)];
         source.pitch = pitchRandom;
         source.PlayOneShot(playClip);
     }
@@ -69,6 +99,8 @@ public class SoundManager : MonoBehaviour
             Debug.LogWarning($"Audiotype: {audioType.ToString()} is empty no clip to play");
             return;
         }
+
+        source.PlayOneShot(playClip);
     }
 
     //This just handles creating list at the same length as the enum, sets the name based on enum names.

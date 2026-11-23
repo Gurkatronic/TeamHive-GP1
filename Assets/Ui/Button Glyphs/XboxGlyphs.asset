@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f29065bad1458f4b9df5ab4ebed405b, type: 3}
+  m_Name: XboxGlyphs
+  m_EditorClassIdentifier: Assembly-CSharp::ControllerGlyphsScriptableObject
+  glyphLibrary:
+  - key: 0
+    value: {fileID: 4600320868557014709, guid: fc1ba3b2f94f7974c8384204119c43f7, type: 3}
+  - key: 1
+    value: {fileID: 1536610985664812233, guid: 4afddf342f358254fb2b9dba9e8d4cdd, type: 3}
+  - key: 2
+    value: {fileID: -5139752235935985354, guid: 423d63bb822c24a4dbbfd99b01fbe808, type: 3}
+  - key: 3
+    value: {fileID: -9085605288992608834, guid: 2ef133a730cba454c98a428efc59097f, type: 3}
+  - key: 4
+    value: {fileID: -1852535901072925621, guid: f9769b8641cd41d47afbdfaeb5beec10, type: 3}
+  - key: 5
+    value: {fileID: -1692239736541248006, guid: 6daee697b4253974a8359a1e0f6b1c23, type: 3}
+  - key: 6
+    value: {fileID: 8735880414245241325, guid: 22c2dd21c95314e4b93483273e9b917d, type: 3}
+  - key: 7
+    value: {fileID: -6683601640143598805, guid: 9fcd55d7c98b8c846bafef57cb337cdc, type: 3}
+  - key: 8
+    value: {fileID: 6866296089251238813, guid: 30eb95963ac28e849a12d7627836264d, type: 3}
+  - key: 9
+    value: {fileID: 1000234082085313595, guid: ff8412cb426d26740bae377cccdd916e, type: 3}
+  - key: 10
+    value: {fileID: 2267800731179639549, guid: 44de01b3f0d3c364899825c08d6784bd, type: 3}
+  - key: 11
+    value: {fileID: 4249578791139060025, guid: 205beca9034cb2c47ad58525142af437, type: 3}
+  - key: 12
+    value: {fileID: -3997850089383228863, guid: 0f65aa43968521544b67c62347cf24d1, type: 3}
+  - key: 13
+    value: {fileID: 3336128370510153928, guid: 26bf948375333f64ab8a6f42849fc620, type: 3}
+  - key: 14
+    value: {fileID: 1569425074811258265, guid: 214021eed13b0a3449e2a22516cb2d75, type: 3}
+  - key: 15
+    value: {fileID: 7152289617307078270, guid: a78abfaae972e9f409206b373cf59993, type: 3}
+  - key: 16
+    value: {fileID: 7877496642147825795, guid: 2a13640de8d35184ca785a645eb1bf36, type: 3}
+  - key: 17
+    value: {fileID: -6157015308907440503, guid: 91fcd8fa8ab8a664ea817605eea6efa4, type: 3}
+  - key: 18
+    value: {fileID: -2926610403125193776, guid: ccbbb18ab7fb7b74b824d4af3c73896a, type: 3}
+  - key: 19
+    value: {fileID: -7852748577579673936, guid: 1af55e00ebc3a4c45ae9f54e60f8696d, type: 3}
+  - key: 20
+    value: {fileID: 0}
+  - key: 21
+    value: {fileID: 0}
+  - key: 22
+    value: {fileID: 0}
+  - key: 23
+    value: {fileID: 2194442242755624189, guid: cf1d07d994992884ca6b64e330120880, type: 3}
+  - key: 24
+    value: {fileID: 246453436953034071, guid: e748d0640f03eda4e89eed2862633166, type: 3}
+  - key: 25
+    value: {fileID: -8890445823937379216, guid: 2361d721152d62e438cc695eaa0aff5a, type: 3}
+  - key: 26
+    value: {fileID: 5676446216778957172, guid: 6d99640ffe6306d4ab00f6fe0ca54cfa, type: 3}
+  - key: 27
+    value: {fileID: 0}
+  - key: 28
+    value: {fileID: 0}
+  - key: 29
+    value: {fileID: 0}
+  - key: 30
+    value: {fileID: -8211830279039031973, guid: 31afa1091786f3f41bd1db1dddc458e0, type: 3}
+  - key: 31
+    value: {fileID: -4888617564249088142, guid: 75ae84803988e7b4b8afb7a2287c512c, type: 3}
+  - key: 32
+    value: {fileID: 0}
+  - key: 33
+    value: {fileID: 0}
+  - key: 34
+    value: {fileID: 8163804113092705876, guid: d2ae0cfa3ffc6c6468fbdc907b59a70d, type: 3}
