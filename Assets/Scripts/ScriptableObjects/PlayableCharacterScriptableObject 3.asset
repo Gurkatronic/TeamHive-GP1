@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f86c59878541b7469b175a102da8710, type: 3}
+  m_Name: PlayableCharacterScriptableObject 3
+  m_EditorClassIdentifier: Assembly-CSharp::PlayableCharacterScriptableObject
+  outlineColor: {r: 0, g: 0, b: 0, a: 0}
+  characterPrefab: {fileID: 8206065769073952359, guid: 12ba63426a00c214da97695fb272cdb8, type: 3}
+  playerSounds:
+    soundDict:
+    - key: 0
+      value: {fileID: 8300000, guid: c534135ad83d2bd45999951a4f423252, type: 3}
+    - key: 1
+      value: {fileID: 8300000, guid: a2d61072bc432684d8fcb07b1d8e76d4, type: 3}
+    - key: 2
+      value: {fileID: 0}
+    - key: 4
+      value: {fileID: 0}
+    - key: 3
+      value: {fileID: 0}
+    - key: 5
+      value: {fileID: 0}

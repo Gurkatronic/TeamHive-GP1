@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f29065bad1458f4b9df5ab4ebed405b, type: 3}
+  m_Name: PlaystationGlyphs
+  m_EditorClassIdentifier: Assembly-CSharp::ControllerGlyphsScriptableObject
+  glyphLibrary:
+  - key: 0
+    value: {fileID: 1274078703391855014, guid: 6c202dd71c4357c4782be63ccc909b9d, type: 3}
+  - key: 1
+    value: {fileID: -8765976750552961858, guid: 24c11c3697725eb4bb38e459f29cbb45, type: 3}
+  - key: 2
+    value: {fileID: 6235471570580788290, guid: 5c7c8747f73b27340838b59b11c453b9, type: 3}
+  - key: 3
+    value: {fileID: -3572960301678450194, guid: 4dff1375211b2e04bb4893291b832083, type: 3}
+  - key: 4
+    value: {fileID: 9116933214442999143, guid: b94b8171dde7963468ccf670fb874b95, type: 3}
+  - key: 5
+    value: {fileID: -4995563932711610986, guid: f66da9d2bf1309345b998dcdc02c7fc1, type: 3}
+  - key: 6
+    value: {fileID: 495181502491150895, guid: 9ceaf0a426de01d4b8535c58de2cc639, type: 3}
+  - key: 7
+    value: {fileID: 780114571240795900, guid: c3dae3bcae7e5b943925c4b2c67c4a1f, type: 3}
+  - key: 8
+    value: {fileID: -8022254609415329910, guid: 982ab512f5b37ce46bb623f93616aeab, type: 3}
+  - key: 9
+    value: {fileID: -2361648806963680151, guid: 9919f8fe83d25a248a2eeb9d7b1dcb07, type: 3}
+  - key: 10
+    value: {fileID: 662855537952934242, guid: e9d6bc9f05ca3ae409629479799577b2, type: 3}
+  - key: 11
+    value: {fileID: -1720294188337615911, guid: bd3534f2b53eb0447988cdab051807b3, type: 3}
+  - key: 12
+    value: {fileID: 7965786778971591906, guid: f644e224fd0665149b07e8d4e0c488c3, type: 3}
+  - key: 13
+    value: {fileID: 7852979942312365909, guid: 4e62a9ed0f937dc419fbe3c149b9b27d, type: 3}
+  - key: 14
+    value: {fileID: 3233637238418051751, guid: ff5b3c36cff9e0247ab2ab928ea87c39, type: 3}
+  - key: 15
+    value: {fileID: 8160964202596234972, guid: 96f3a51ee3a00594ab02f085c6eb2c74, type: 3}
+  - key: 16
+    value: {fileID: 6650908906499664520, guid: 0444cb61b4ea30045b1cb550978598f3, type: 3}
+  - key: 17
+    value: {fileID: 5530710427878676384, guid: 62aeedcfa0462e741b99a3764c3f6be2, type: 3}
+  - key: 18
+    value: {fileID: 2703225999569622403, guid: 572261cf6922d1046a48a0c186d496bf, type: 3}
+  - key: 19
+    value: {fileID: -169155302310532903, guid: 16b5a3a16d7355f4d84ff134dbab965c, type: 3}
+  - key: 20
+    value: {fileID: 0}
+  - key: 21
+    value: {fileID: 0}
+  - key: 22
+    value: {fileID: 0}
+  - key: 23
+    value: {fileID: 4328834179877163855, guid: e8e5528900b13514e818583b81ef84cb, type: 3}
+  - key: 24
+    value: {fileID: 1207745747304909299, guid: 033011b8633c7314280440cb77feca69, type: 3}
+  - key: 25
+    value: {fileID: -2324217170730332367, guid: 87347dfcb674dab4fb3dbd3b2bcbc0ae, type: 3}
+  - key: 26
+    value: {fileID: -7154618847791861227, guid: 5befff8e7427db6438a328cf03accda1, type: 3}
+  - key: 27
+    value: {fileID: 0}
+  - key: 28
+    value: {fileID: 0}
+  - key: 29
+    value: {fileID: -6514671347812767465, guid: e034e81f59e302c46a3762e8a8f02364, type: 3}
+  - key: 30
+    value: {fileID: 816002044334272211, guid: 4eeefcddb1006f040859ceb6cd036465, type: 3}
+  - key: 31
+    value: {fileID: 6422944826541627234, guid: 9620cbf042969ca4db3ec7fb2bf70dfd, type: 3}
+  - key: 32
+    value: {fileID: 0}
+  - key: 33
+    value: {fileID: 0}
+  - key: 34
+    value: {fileID: -1969995854777021115, guid: 65a114c1ffe0b234bb57a7c8d0a77bcf, type: 3}
