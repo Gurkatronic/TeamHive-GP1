@@ -40,12 +40,14 @@ public class ControllerDetector : MonoBehaviour
     IDisposable anyButtonListener;
 
     private void Awake() {
-        if(Instance != this) {
-            Instance = this;
+        if (Instance != null && Instance != this) {
+            Destroy(gameObject);
+            return;
         }
-        //DontDestroyOnLoad(this);
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
 
-        for(int i = 0; i < slots.Length; i++) {
+        for (int i = 0; i < slots.Length; i++) {
             slots[i] = new PlayerSlot { slotIndex = i };
         }
 
@@ -97,9 +99,13 @@ public class ControllerDetector : MonoBehaviour
             Debug.Log("This is not a gamepad");
             return;
         }
-        
 
-        for(int i = 0; i < slots.Length; i++) {
+        if (control.parent is UnityEngine.InputSystem.Controls.StickControl) {
+            return; 
+        }
+
+
+        for (int i = 0; i < slots.Length; i++) {
             if (slots[i].isConnected && slots[i].gamepad == gamepad)
                 return;
         }
@@ -136,7 +142,7 @@ public class ControllerDetector : MonoBehaviour
                     Debug.Log("Controller detector cant find main menu manager");
                     return;
                 }
-                mainMenu.ConnectPlayerToSelect(playerId);
+                mainMenu.ConnectPlayerToSelect(slots[playerId]);
                 //ADD from characterselect 
                 //this should call the mainmenu script
                 Debug.Log("This is characterselect join");

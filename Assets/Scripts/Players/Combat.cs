@@ -1,13 +1,16 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 public class Combat : MonoBehaviour
 {
     PlayerLogic playerLogic;
     [SerializeField] BoxCollider attackHitbox;
+    [SerializeField] AttackSphere attackSphere;
 
     private void Awake()
     {
         playerLogic = GetComponent<PlayerLogic>();
+
     }
     public void OnAttack()
     {
@@ -16,7 +19,26 @@ public class Combat : MonoBehaviour
         if (playerLogic.time - playerLogic.lastAttackTime >= playerLogic.attackCooldown)
         {
             playerLogic.lastAttackTime = playerLogic.time;
-            EnableHitbox(); // call from animtation later
+            //EnableHitbox(); // call from animtation later
+            HandleAttack(attackSphere.Attack());
+        }
+    }
+
+    void HandleAttack(Collider[] colliders) {
+        Debug.Log("collider len: " + colliders.Length);
+        if(colliders.Length <= 0) {
+            return;
+        }
+
+        for(int i = 0; i < colliders.Length; i++) {
+            if (colliders[i].TryGetComponent(out IDamageable idmg)) {
+                idmg.OnDamage(playerLogic.damage);
+                Debug.Log("Attacking with rewrite, idamageable");
+            }
+            if (colliders[i].TryGetComponent(out IPunchable ipunch)) {
+                ipunch.Impact(transform.position);
+                Debug.Log("Attacking with rewrite, ipunchable");
+            }
         }
     }
 

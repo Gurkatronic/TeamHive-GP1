@@ -31,7 +31,6 @@ public class ControllerButtonImage : MonoBehaviour, ISelectHandler, IDeselectHan
 
 
     public void ShowGlyph() {
-        Debug.Log("HELELEODADOAPDA!??!?!");
         ControllerGlyphsScriptableObject controllerGlyphs = ControllerDetector.Instance.slots[0].controllerGlyphs;
         if (controllerGlyphs == null) {
             glyphImage.enabled = false;

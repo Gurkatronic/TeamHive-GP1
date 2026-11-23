@@ -36,9 +36,12 @@ public class MainMenuManager : MonoBehaviour
     GameObject lastSelectedObj;
 
     public void Awake() {
-        if(Instance != this) {
-            Instance = this;
+        if (Instance != null && Instance != this) {
+            Destroy(gameObject);
+            return;
         }
+        Instance = this;
+
         SwapScreen(MenuState.MainMenu);
     }
     public void Update() {
@@ -56,7 +59,7 @@ public class MainMenuManager : MonoBehaviour
         PlayerSlot[] playerSlots = ControllerDetector.Instance.slots;
         for(int i = 0; i < playerSlots.Length; i++) {
             if (playerSlots[i].isConnected) {
-                characterSelectBoxes[i].ActivateSelect();
+                characterSelectBoxes[i].ActivateSelect(i, playerSlots[i].gamepad);
             }
         }
     }
@@ -79,8 +82,8 @@ public class MainMenuManager : MonoBehaviour
 
     }
 
-    public void ConnectPlayerToSelect(int index) {
-        characterSelectBoxes[index].ActivateSelect();
+    public void ConnectPlayerToSelect(PlayerSlot playerSlot) {
+        characterSelectBoxes[playerSlot.slotIndex].ActivateSelect(playerSlot.slotIndex, playerSlot.gamepad);
     }
 
     public void DisconnectPlayerToSelect(int index) {
