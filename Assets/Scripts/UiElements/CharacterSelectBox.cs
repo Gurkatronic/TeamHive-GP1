@@ -38,13 +38,13 @@ public class CharacterSelectBox : MonoBehaviour
             }
         }
 
-        if(gamepad.buttonSouth.wasPressedThisFrame) {
-            if (lockedIn)
-                return;
-            else {
-                LockIn();
-            }
-        }
+        //if(gamepad.buttonSouth.wasPressedThisFrame) {
+        //    if (lockedIn)
+        //        return;
+        //    else {
+        //        LockIn();
+        //    }
+        //}
     }
 
     void LockIn() {

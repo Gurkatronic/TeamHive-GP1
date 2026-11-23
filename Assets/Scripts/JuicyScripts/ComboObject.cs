@@ -1,7 +1,9 @@
 using NaughtyAttributes;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public interface IPunchable {
     void Impact(Vector3 fromPos);
@@ -47,6 +49,7 @@ public class ComboObject : MonoBehaviour, IPunchable {
     private Vector3 startPos;
     private Quaternion startRot;
     private Vector3 anchorPos;
+    public Action attacked;
 
     private void Awake() {
         startPos = transform.position;
@@ -92,7 +95,7 @@ public class ComboObject : MonoBehaviour, IPunchable {
         if (currentPunch >= maxPunch) {
             return;
         }
-
+        attacked?.Invoke();
         //Sound goes here
         SoundManager.Instance.PlayRandomSound(RandomAudioType.GuitarRiff, audioSource);                
         anchorPos = transform.position;

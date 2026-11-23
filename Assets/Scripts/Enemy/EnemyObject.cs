@@ -47,6 +47,11 @@ public abstract class EnemyObject : MonoBehaviour
         attackTimer = new(attackSpeed, attackCooldown);
         stunTimer = new(stunTime);
         spawnTimer = new(spawnTime);
+        AwakeLoad();
+    }
+
+    protected virtual void AwakeLoad() {
+
     }
 
     private void Update() {
