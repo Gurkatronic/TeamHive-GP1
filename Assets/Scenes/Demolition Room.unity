@@ -454,7 +454,7 @@ Transform:
   m_GameObject: {fileID: 48055415}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.99, y: 3.53, z: 9.95}
+  m_LocalPosition: {x: -3.99, y: 1.19, z: 9.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -664,7 +664,7 @@ Transform:
   m_GameObject: {fileID: 233207236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.51, y: 3.53, z: 4.86785}
+  m_LocalPosition: {x: -10.51, y: 1.19, z: 4.86785}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4152,13 +4152,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493146813}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1626e14644b366c48a4e8c31e4524ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputManagerX
   playerPrefab: {fileID: 5845619688254955292, guid: 43557f51ece831243abcb79cda11c1cb, type: 3}
-  spawnPoints: []
+  spawnPoints:
+  - {fileID: 233207237}
+  - {fileID: 1711445403}
 --- !u!4 &1493146815
 Transform:
   m_ObjectHideFlags: 0
@@ -4265,7 +4267,7 @@ Transform:
   m_GameObject: {fileID: 1711445402}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.87, y: 3.53, z: 4.86785}
+  m_LocalPosition: {x: 3.87, y: 1.19, z: 4.86785}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
