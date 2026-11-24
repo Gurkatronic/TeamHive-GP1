@@ -5,7 +5,7 @@ public class Relic : MonoBehaviour, IDamageable
     public static Relic Instance;
 
     [SerializeField] int maxHealth = 100;
-    [SerializeField] int currentHealth; 
+    [SerializeField] int currentHealth;
     [SerializeField] float maxHoldTime = 10f;
     [SerializeField] float holdSpeedMultiplier = 1f;
     [SerializeField] float backwardsSpeedMultiplier = 1f;
@@ -16,6 +16,12 @@ public class Relic : MonoBehaviour, IDamageable
     [SerializeField] float pickupCooldown = 1f;
     [SerializeField] Vector3 holdOffset = new Vector3(0f, 2f, 0f);
     [SerializeField] float holdTimer = 0f;
+
+    [Header("Push Settings")]
+    public float radius = 5f;
+    public float pushForce = 500f;
+    public float upwardsModifier = 0.5f;
+    public LayerMask affectedLayers = 0;
 
     PlayerLogic holder;
     Collider relicCollider;
@@ -35,7 +41,8 @@ public class Relic : MonoBehaviour, IDamageable
         Initialize();
     }
 
-    void Initialize() {
+    void Initialize()
+    {
         currentHealth = maxHealth;
     }
 
@@ -110,13 +117,33 @@ public class Relic : MonoBehaviour, IDamageable
         player.Stun(stunDuration);
     }
 
-    public int OnDamage(int damage) {
+    public int OnDamage(int damage)
+    {
+        TriggerPush();
         currentHealth -= damage;
-        if (currentHealth < 0) {
+        if (currentHealth < 0)
+        {
             Debug.Log("Relic is destroyed");
             return 1;
         }
         else
             return 1;
+    }
+
+    public void TriggerPush()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, affectedLayers);
+
+        foreach (Collider hit in hitColliders)
+        {
+            if (hit.gameObject == this.gameObject) continue;
+
+            Rigidbody rb = hit.GetComponent<Rigidbody>();
+
+            if (rb != null)
+            {
+                rb.AddExplosionForce(pushForce, transform.position, radius, upwardsModifier, ForceMode.Impulse);
+            }
+        }
     }
 }
