@@ -167,6 +167,8 @@ public class ComboObject : MonoBehaviour, IPunchable {
     }
 
     private IEnumerator FlyAnimation(Vector3 forceDir, float powerMultiplier) {
+        //There could be a material flickering with white here so its easy to tell that its finished.
+        //Particle effect could also work here
         col.excludeLayers = defaultExcludeLayers;
         rb.isKinematic = false;
 
@@ -190,6 +192,15 @@ public class ComboObject : MonoBehaviour, IPunchable {
             yield return null;
         }
 
+        ResetCombo(); //reset combo after flying so it can recieve damage again
+        yield return null;
+
+    }
+
+    void ResetCombo() {
+        currentPunch = 0;
+        isComboActive = false;
+        comboTimer = 0;
     }
 
     [Button("Reset Object")]

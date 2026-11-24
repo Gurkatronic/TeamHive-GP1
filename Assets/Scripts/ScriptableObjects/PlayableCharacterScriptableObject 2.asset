@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayableCharacterScriptableObject 2
   m_EditorClassIdentifier: Assembly-CSharp::PlayableCharacterScriptableObject
   outlineColor: {r: 0, g: 0, b: 0, a: 0}
-  characterPrefab: {fileID: 4753711766485620441, guid: c5b95a69c668b894f99a1f4b22b14cef, type: 3}
+  characterPrefab: {fileID: 5245867275249558385, guid: 3d042866c2f046c43a6b8bbe765b595a, type: 3}
   playerSounds:
     soundDict:
     - key: 0

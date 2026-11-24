@@ -1,18 +1,36 @@
 using NaughtyAttributes;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     [SerializeField] PlayerInputManager playerInputManager;
     [SerializeField] ScoreManager scoreManager;
-    [SerializeField] UiManager uiManager;
+    [SerializeField] RoomEnemySpawner roomEnemySpawner;
+    [SerializeField] public UiManager uiManager;
     [SerializeField] SessionPackage currentSession;
+    [SerializeField] PlayableCharacterScriptableObject[] debugPlayerScripts;
     int currentPlayerCount;
     public bool debugmode = false;
 
+    private void Awake() {
+        if (Instance != null && Instance != this) {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
+        if (roomEnemySpawner == null) {
+            roomEnemySpawner = FindAnyObjectByType<RoomEnemySpawner>();
+        }
+    }
 
     private void Start() {
+        
+
         if (!debugmode) {
             Debug.Log("Starting session");
             SessionPackage sessionPackage = PersistantMemory.Instance.StartSession();
@@ -28,6 +46,9 @@ public class GameManager : MonoBehaviour
     public void TestSessionPackage() {
         SessionPackage sessionPackage = PersistantMemory.Instance.StartSession();
         currentSession = sessionPackage;
+        if(debugmode) {
+            currentSession.activePlayers = debugPlayerScripts.ToList();
+        }
         currentPlayerCount = sessionPackage.playerSlots.Count;
         scoreManager = new(currentPlayerCount);
         Debug.Log("playerCount: " + currentPlayerCount);
@@ -40,7 +61,16 @@ public class GameManager : MonoBehaviour
             PlayerSlot playerSlot = currentSession.playerSlots[i];
             GameObject prefab = currentSession.activePlayers[i].characterPrefab;
             PlayerInput player = PlayerInput.Instantiate(prefab, playerIndex: playerSlot.slotIndex, controlScheme: "Gamepad", pairWithDevice: playerSlot.gamepad);
+            PlayerLogic pLogic = player.GetComponent<PlayerLogic>();
+            if(pLogic == null) {
+                Debug.Log("Player logic can not be found on the spawned player.");
+            }
+            else {
+                pLogic.playerIndex = i;
+            }
         }
+
+        roomEnemySpawner.spawnActive = true;
     }
     public void KickPlayer() {
         

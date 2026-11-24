@@ -418,4 +418,5 @@ MonoBehaviour:
   healthBarFill: {fileID: 4385999306928525466}
   rageBarFill: {fileID: 6497744904240501926}
   scoreMesh: {fileID: 1999762746094906049}
+  pointPop: {fileID: 7722696939368883372, guid: 6ed04b111fb6f8e4fa5d852e0e0c5ad4, type: 3}
   currentScore: 0

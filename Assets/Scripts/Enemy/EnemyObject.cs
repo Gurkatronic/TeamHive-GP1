@@ -12,10 +12,20 @@ public abstract class EnemyObject : MonoBehaviour
         Moving,
         Spawning
     }
+    protected enum EnemySearchMethod {
+        OnlyRelic,
+        ClosePlayerOrRelic,
+        OnlyPlayer
+    }
     [Header("ENEMY IS IN STATE")]
+    [SerializeField] protected EnemySearchMethod searchMethod = EnemySearchMethod.OnlyRelic;
     [SerializeField] protected  EnemyState currentState = EnemyState.Spawning;
     [SerializeField] protected float spawnTime = 0.5f;
     protected ActionTimer spawnTimer;
+
+    [Header("Search Settings")]
+    [SerializeField] protected float playerSearchRange = 5f;
+    [SerializeField] protected LayerMask playerLayer;
 
     [Header("Attack Information")]
     [SerializeField] protected Transform trackTarget;
@@ -54,6 +64,11 @@ public abstract class EnemyObject : MonoBehaviour
 
     }
 
+    public virtual void SpawnEnemy(Vector3 spawnPos) {
+        currentState = EnemyState.Spawning;
+        transform.position = spawnPos;
+    }
+
     private void Update() {
         switch(currentState) {
             case EnemyState.Searching:
@@ -81,7 +96,6 @@ public abstract class EnemyObject : MonoBehaviour
 
             case EnemyState.Spawning:
                 if(spawnTimer.UpdateTimer()) {
-                    spawnTimer.ResetTimer();
                     currentState = EnemyState.Searching;
                 }
                 break;
@@ -91,6 +105,10 @@ public abstract class EnemyObject : MonoBehaviour
     private void FixedUpdate() {
         switch (currentState) {
             case EnemyState.Moving:
+                if(trackTarget == null) {
+                    currentState = EnemyState.Searching;
+                    return;
+                }
                 FixedMove();
                 break;
         }
@@ -100,7 +118,31 @@ public abstract class EnemyObject : MonoBehaviour
     /// Look for what to track, transition to whatever state feels necessary, but moving is usually the right choice in that case base.FindTarget()
     /// </summary>
     protected virtual void FindTarget() {
+        switch(searchMethod) {
+            case EnemySearchMethod.OnlyRelic:
+                trackTarget = Relic.Instance.transform;
+                break;
+            case EnemySearchMethod.ClosePlayerOrRelic: //search for player, if it fails track the relic
+                if(!FindPlayer())
+                    trackTarget = Relic.Instance.transform;
+                break;
+            case EnemySearchMethod.OnlyPlayer:
+                break;
+        }
         currentState = EnemyState.Moving;
+    }
+
+    bool FindPlayer() {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, playerSearchRange, playerLayer);
+
+        for(int i = 0; i < colliders.Length; i++) {
+            if (colliders[i].CompareTag("Player")) { //kan skicka denna, kan göra en range check för att se vilken som är närmast.
+                trackTarget = colliders[i].transform;
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /// <summary>

@@ -1,9 +1,11 @@
 using UnityEngine;
 
-public class Relic : MonoBehaviour
+public class Relic : MonoBehaviour, IDamageable
 {
     public static Relic Instance;
 
+    [SerializeField] int maxHealth = 100;
+    [SerializeField] int currentHealth; 
     [SerializeField] float maxHoldTime = 10f;
     [SerializeField] float holdSpeedMultiplier = 1f;
     [SerializeField] float backwardsSpeedMultiplier = 1f;
@@ -30,6 +32,11 @@ public class Relic : MonoBehaviour
             return;
         }
         Instance = this;
+        Initialize();
+    }
+
+    void Initialize() {
+        currentHealth = maxHealth;
     }
 
     private void Update()
@@ -101,5 +108,15 @@ public class Relic : MonoBehaviour
         PlayerLogic player = holder;
         Drop();
         player.Stun(stunDuration);
+    }
+
+    public int OnDamage(int damage) {
+        currentHealth -= damage;
+        if (currentHealth < 0) {
+            Debug.Log("Relic is destroyed");
+            return 1;
+        }
+        else
+            return 1;
     }
 }

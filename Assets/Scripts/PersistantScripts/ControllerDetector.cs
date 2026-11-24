@@ -54,7 +54,6 @@ public class ControllerDetector : MonoBehaviour
         
     }
 
-
     private void OnEnable() {
         anyButtonListener = InputSystem.onAnyButtonPress.Call(OnAnyButtonPress);
         InputSystem.onDeviceChange += OnDeviceChange;
@@ -168,6 +167,7 @@ public class ControllerDetector : MonoBehaviour
                 break;
             case ControllerDetectorState.Gameplay:
                 Debug.Log("Lost input in game");
+
 
                 break;
         }

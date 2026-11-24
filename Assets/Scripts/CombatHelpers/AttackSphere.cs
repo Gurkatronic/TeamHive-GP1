@@ -5,11 +5,12 @@ public class AttackSphere : MonoBehaviour
 {
     float range = 2f;
     float radius = 3f;
+    public Vector3 sphereOffset;
     public LayerMask attackLayers;
 
     public Collider[] Attack() {
         Debug.Log("Calling attack");
-        return Physics.OverlapSphere(transform.position, radius, attackLayers);
+        return Physics.OverlapSphere(transform.position + sphereOffset, radius, attackLayers);
     }
 
     private void Update() {

@@ -1,7 +1,10 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 public class PlayerLogic : MonoBehaviour, IDamageable
 {
+
+    public int playerIndex;
     public int health = 100;
     public int damage = 10;
     public int killStreak = 0;
@@ -78,8 +81,15 @@ public class PlayerLogic : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             knockedDown = true;
+            Debug.Log("Player went down");
+            gameObject.SetActive(false);
             return 1;
         }
         return 0;
+    }
+
+    [Button("Test give 10 score")]
+    public void TestScorePop() {
+        GameManager.Instance.uiManager.IncreaseScore(playerIndex, 10);
     }
 }
