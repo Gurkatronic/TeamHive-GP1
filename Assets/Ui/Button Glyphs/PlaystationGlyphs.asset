@@ -83,3 +83,6 @@ MonoBehaviour:
     value: {fileID: 0}
   - key: 34
     value: {fileID: -1969995854777021115, guid: 65a114c1ffe0b234bb57a7c8d0a77bcf, type: 3}
+  controllerKeywords:
+  - Dualsense
+  - Dualshock

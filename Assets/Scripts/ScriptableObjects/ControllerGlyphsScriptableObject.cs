@@ -60,7 +60,7 @@ public enum ControllerButtons {
 public class ControllerGlyphsScriptableObject : ScriptableObject
 {
     [SerializeField] private Dictionary<ControllerButtons, Sprite> glyphLibrary = new();
-
+    public string[] controllerKeywords;
 
 
     public Sprite GetControllerGlyph(ControllerButtons button) {

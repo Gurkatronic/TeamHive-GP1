@@ -83,3 +83,5 @@ MonoBehaviour:
     value: {fileID: 0}
   - key: 34
     value: {fileID: 8163804113092705876, guid: d2ae0cfa3ffc6c6468fbdc907b59a70d, type: 3}
+  controllerKeywords:
+  - Xbox

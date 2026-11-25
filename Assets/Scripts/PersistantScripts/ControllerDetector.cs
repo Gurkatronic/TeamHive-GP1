@@ -114,6 +114,7 @@ public class ControllerDetector : MonoBehaviour
             if (!playerSlot.isConnected) {
                 playerSlot.user = InputUser.PerformPairingWithDevice(gamepad);
                 playerSlot.gamepad = gamepad;
+                playerSlot.controllerGlyphs = CheckControllerGlyphs(gamepad);
                 playerSlot.isConnected = true;
                 Debug.Log($"Player {i} joined with gamepad {gamepad.displayName}");
                 OnPlayerJoined(i);
@@ -171,6 +172,21 @@ public class ControllerDetector : MonoBehaviour
 
                 break;
         }
+    }
+
+    ControllerGlyphsScriptableObject CheckControllerGlyphs(Gamepad gamepad) {
+        string gamepadName = gamepad.name;
+        gamepadName = gamepadName.ToLower();
+
+        foreach(ControllerTypes key in masterGlyphLibrary.Keys) {
+            foreach (string keyword in masterGlyphLibrary[key].controllerKeywords) {
+                if(gamepadName.Contains(keyword, StringComparison.OrdinalIgnoreCase)) {
+                    return masterGlyphLibrary[key];
+                }
+            }
+        }
+
+        return null;
     }
 
 }
