@@ -3,7 +3,7 @@ using UnityEngine;
 public class Relic : MonoBehaviour, IDamageable
 {
     public static Relic Instance;
-
+    [SerializeField] Rigidbody rb;
     [SerializeField] int maxHealth = 100;
     [SerializeField] int currentHealth;
     [SerializeField] float maxHoldTime = 10f;
@@ -17,11 +17,21 @@ public class Relic : MonoBehaviour, IDamageable
     [SerializeField] Vector3 holdOffset = new Vector3(0f, 2f, 0f);
     [SerializeField] float holdTimer = 0f;
 
-    [Header("Push Settings")]
+    [Header("Throw settings")]
+    [SerializeField] float upwardLift;
+    [SerializeField] float throwStrength;
+
+    [Header("Damage protection")]
+    [SerializeField] bool damageProtectActive = false;
+    [SerializeField] float protectMaxTime = 2;
+    ActionTimer damageProtectTimer;
+
+    [Header("Force Field after taken damage settings")]
     public float radius = 5f;
     public float pushForce = 500f;
     public float upwardsModifier = 0.5f;
     public LayerMask affectedLayers = 0;
+    Vector3 directionForThrow;
 
     PlayerLogic holder;
     Collider relicCollider;
@@ -29,6 +39,7 @@ public class Relic : MonoBehaviour, IDamageable
 
     private void Awake()
     {
+        damageProtectTimer = new(protectMaxTime);
         relicCollider = GetComponent<Collider>();
         relicCollider.isTrigger = true;
 
@@ -76,6 +87,15 @@ public class Relic : MonoBehaviour, IDamageable
                 }
             }
         }
+
+
+        if(damageProtectActive) {
+            if(damageProtectTimer.UpdateTimer()) {
+                damageProtectActive = false;
+            }
+        }
+
+        rb.useGravity = !holder;
     }
 
     private void LateUpdate()
@@ -95,6 +115,7 @@ public class Relic : MonoBehaviour, IDamageable
 
         holder = player;
         holder.hasRelic = true;
+        holder.throwChargeStartTime = 0f;
         relicCollider.enabled = false;
         Debug.Log("relic picked up by " + player.name);
     }
@@ -119,15 +140,19 @@ public class Relic : MonoBehaviour, IDamageable
 
     public int OnDamage(int damage)
     {
+        if (damageProtectActive)
+            return 0;
+
         TriggerPush();
         currentHealth -= damage;
+        damageProtectActive = true;
         if (currentHealth < 0)
         {
             Debug.Log("Relic is destroyed");
             return 1;
         }
         else
-            return 1;
+            return 0;
     }
 
     public void TriggerPush()
@@ -145,5 +170,17 @@ public class Relic : MonoBehaviour, IDamageable
                 rb.AddExplosionForce(pushForce, transform.position, radius, upwardsModifier, ForceMode.Impulse);
             }
         }
+    }
+
+    public void ThrowRelic(float charge)
+    {
+        directionForThrow = holder.transform.forward;
+        holder.relicSpeedMultiplier = 1f;
+        holder.hasRelic = false;
+        holder = null;
+        cooldownTimer = pickupCooldown;
+        rb.AddForce((directionForThrow * charge * throwStrength), ForceMode.Impulse);
+        
+        
     }
 }

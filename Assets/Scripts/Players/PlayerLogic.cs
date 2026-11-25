@@ -1,5 +1,6 @@
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerLogic : MonoBehaviour, IDamageable
 {
@@ -25,7 +26,8 @@ public class PlayerLogic : MonoBehaviour, IDamageable
     public float relicSpeedMultiplier = 1f;
     public bool stunned = false;
     public float stunTimeLeft = 0f;
-
+    public float throwChargeStartTime;
+    private float throwCharge;
 
     private void Update()
     {
@@ -88,8 +90,34 @@ public class PlayerLogic : MonoBehaviour, IDamageable
         return 0;
     }
 
+    public void KnockedDown()
+    {
+        knockedDown = true;
+        //code goes here!!
+    }
+
+    public void ThrowRelicPlayer(InputAction.CallbackContext context)
+    {
+        if (hasRelic)
+        {
+            if (throwChargeStartTime == 0f)
+            {
+                throwChargeStartTime = time;
+            }
+            if (context.canceled)
+            {
+                if (time - throwChargeStartTime > 1f) throwCharge = 1f;
+                else throwCharge = time - throwChargeStartTime;
+                Relic.Instance.ThrowRelic(throwCharge);
+            }
+
+        }
+    }
+
+
     [Button("Test give 10 score")]
-    public void TestScorePop() {
+    public void TestScorePop()
+    {
         GameManager.Instance.uiManager.IncreaseScore(playerIndex, 10);
     }
 }

@@ -37,6 +37,10 @@ public class Combat : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if(other.TryGetComponent(out IPunchable ipunch))
+        {
+            ipunch.Impact(transform.position);
+        }
         if (playerLogic.rageMode)
         {
             if (other != this)
@@ -45,6 +49,7 @@ public class Combat : MonoBehaviour
                 if (damageable != null)
                 {
                     playerLogic.AddKills(damageable.OnDamage(playerLogic.damage));
+                    Debug.Log("Player attacked here <-------------------------");
                 }
             }
 
@@ -57,12 +62,14 @@ public class Combat : MonoBehaviour
                 if (damageable != null)
                 {
                     playerLogic.AddKills(damageable.OnDamage(playerLogic.damage));
+                    Debug.Log("Player attacked here <-------------------------");
                     if (playerLogic.killStreak >= playerLogic.streakNeededForRage)
                     {
                         playerLogic.rageMode = true;
                     }
                 }
             }
+            
         }
     }
 }

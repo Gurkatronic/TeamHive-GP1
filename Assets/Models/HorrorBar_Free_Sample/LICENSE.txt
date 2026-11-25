@@ -1,0 +1,35 @@
+HORROR BAR // LAST ORDERS FREE SAMPLE
+COMMERCIAL-USE LICENSE
+Blind Meridian | Version 1.0.0 | 2026-09-29
+
+Your download grants you a worldwide, non-exclusive, royalty-free license
+to use the included models and textures in an unlimited number of projects,
+subject to these terms. This license does not expire while you comply with
+its terms.
+
+ALLOWED
+- Use these assets in personal and commercial games, applications,
+  animations, and rendered images.
+- Edit, retexture, resize, rig, animate, or otherwise modify the assets
+  to suit your projects.
+- Publish and sell finished projects containing the assets, including
+  related screenshots, trailers, and promotional material.
+- Share the files privately with employees or contractors working on your
+  projects, solely for that work. They may not reuse the assets in their
+  own unrelated projects without obtaining a separate license.
+
+NOT ALLOWED
+- Resell, give away, re-upload, or distribute the assets as standalone
+  files or reusable resources, whether modified or unmodified.
+- Include the assets in asset packs, downloadable templates, public source
+  repositories, or other products that provide them for others to reuse.
+- Claim authorship or exclusive ownership of the original assets.
+- Use the assets to train or fine-tune AI models, or include them in
+  AI training datasets.
+- Use the assets as NFTs or as part of NFT projects.
+
+Credit is appreciated but not required. If you choose to give credit,
+a link to this asset's itch.io page is welcome.
+
+Ownership of the original assets is not transferred. Modified versions
+remain subject to this license.
