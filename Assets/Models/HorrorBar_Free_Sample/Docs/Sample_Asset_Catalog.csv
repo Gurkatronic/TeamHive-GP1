@@ -1,0 +1,19 @@
+asset_id,kind,status,group,triangles,size_mm,pivot,materials,textures,sockets,glb,fbx,note
+HB_Counter_Straight,unique model,final,Environment,168,1000x1050x790,"floor, X-centred, bartender face z=0",HB_Env HB_Env_Metal HB_Recess,HB_Env_Atlas.png,,Exports/GLB/HB_Counter_Straight.glb,Exports/FBX/HB_Counter_Straight.fbx,
+HB_Counter_EndCap,unique model,final,Environment,44,48x1060x799,"floor, on the seam (place at seam +/-0.02)",HB_Room HB_Env_Metal,HB_Env_Atlas.png HB_Room_Atlas.png,,Exports/GLB/HB_Counter_EndCap.glb,Exports/FBX/HB_Counter_EndCap.fbx,
+HB_Stool,unique model,final,Environment,356,448x760x460,floor centre,HB_Room HB_Env_Metal,HB_Env_Atlas.png HB_Room_Atlas.png,,Exports/GLB/HB_Stool.glb,Exports/FBX/HB_Stool.fbx,
+HB_Wall_2m,unique model,final,Environment,48,2000x3000x185,"floor, X-centred, room face z=0",HB_Wallpaper HB_Env,HB_Env_Atlas.png HB_Wallpaper.png,,Exports/GLB/HB_Wall_2m.glb,Exports/FBX/HB_Wall_2m.fbx,
+HB_Floor_2m,unique model,final,Environment,12,2000x20x2000,top-surface centre,HB_Room,HB_Room_Atlas.png,,Exports/GLB/HB_Floor_2m.glb,Exports/FBX/HB_Floor_2m.fbx,
+HB_Glass_Tumbler,unique model,final,Prep,120,82x90x82,base centre,HB_Glass,HB_Glassware.png,Rim,Exports/GLB/HB_Glass_Tumbler.glb,Exports/FBX/HB_Glass_Tumbler.fbx,
+HB_Bottle_Apothecary,unique model,final,Ingredients,220,75x216x79,base centre,HB_Ing_BlackBrine,HB_Ing_BlackBrine.png,Closure,Exports/GLB/HB_Bottle_Apothecary.glb,Exports/FBX/HB_Bottle_Apothecary.fbx,
+HB_Cork_T22,unique model,final,Ingredients,80,35x26x35,seat plane (SOCKET_Closure),HB_Props,HB_Props_Atlas.png,,Exports/GLB/HB_Cork_T22.glb,Exports/FBX/HB_Cork_T22.fbx,
+HB_Bottle_Mixer,unique model,final,Ingredients,220,57x190x60,base centre,HB_Ing_TonicWater,HB_Ing_TonicWater.png,Closure,Exports/GLB/HB_Bottle_Mixer.glb,Exports/FBX/HB_Bottle_Mixer.fbx,
+HB_Cap_Crown26,unique model,final,Ingredients,140,35x10x34,seat plane (SOCKET_Closure),HB_Props,HB_Props_Atlas.png,,Exports/GLB/HB_Cap_Crown26.glb,Exports/FBX/HB_Cap_Crown26.fbx,
+HB_Garnish_VeinfruitWheel,unique model,final,Ingredients,64,42x42x5,top of rim notch (SOCKET_Rim),HB_Props,HB_Props_Atlas.png,,Exports/GLB/HB_Garnish_VeinfruitWheel.glb,Exports/FBX/HB_Garnish_VeinfruitWheel.fbx,
+HB_Liquid_Tumbler_Low,unique model,final,Presentation,48,74x23x74,shares glass pivot,HB_Liq_BlackBrine,HB_Liquid_BlackBrine.png,,Exports/GLB/HB_Liquid_Tumbler_Low.glb,Exports/FBX/HB_Liquid_Tumbler_Low.fbx,
+HB_Liquid_Tumbler_Med,unique model,final,Presentation,48,74x42x74,shares glass pivot,HB_Liq_BlackBrine,HB_Liquid_BlackBrine.png,,Exports/GLB/HB_Liquid_Tumbler_Med.glb,Exports/FBX/HB_Liquid_Tumbler_Med.fbx,
+HB_Liquid_Tumbler_High,unique model,final,Presentation,48,74x62x74,shares glass pivot,HB_Liq_BlackBrine,HB_Liquid_BlackBrine.png,,Exports/GLB/HB_Liquid_Tumbler_High.glb,Exports/FBX/HB_Liquid_Tumbler_High.fbx,
+HB_Ice_Cube,unique model,final,Presentation,12,28x27x28,base,HB_Props,HB_Props_Atlas.png,,Exports/GLB/HB_Ice_Cube.glb,Exports/FBX/HB_Ice_Cube.fbx,
+HB_Ing_BlackBrine,ingredient variant,final,Ingredients,300,,base centre,HB_Ing_BlackBrine HB_Props,Ingredients/HB_Ing_BlackBrine.png,,Exports/GLB/Variants/Ingredients/HB_Ing_BlackBrine.glb,Exports/FBX/Variants/Ingredients/HB_Ing_BlackBrine.fbx,strange: HB_Bottle_Apothecary + HB_Cork_T22. Salt-crusted brine that stays black in any light.
+HB_Ing_TonicWater,ingredient variant,final,Ingredients,360,,base centre,HB_Ing_TonicWater HB_Props,Ingredients/HB_Ing_TonicWater.png,,Exports/GLB/Variants/Ingredients/HB_Ing_TonicWater.glb,Exports/FBX/Variants/Ingredients/HB_Ing_TonicWater.fbx,ordinary: HB_Bottle_Mixer + HB_Cap_Crown26. Ordinary tonic.
+HB_Drink_LowTide,example drink,final,Presentation,,,base centre,,,,Exports/GLB/Assemblies/HB_Drink_LowTide.glb,Exports/FBX/Assemblies/HB_Drink_LowTide.fbx,assembly of library meshes; not a unique model

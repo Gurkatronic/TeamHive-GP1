@@ -22,7 +22,9 @@ public class Relic : MonoBehaviour, IDamageable
     public float pushForce = 500f;
     public float upwardsModifier = 0.5f;
     public LayerMask affectedLayers = 0;
+    Vector3 directionForThrow;
 
+    Rigidbody rb;
     PlayerLogic holder;
     Collider relicCollider;
     float cooldownTimer = 0f;
@@ -145,5 +147,12 @@ public class Relic : MonoBehaviour, IDamageable
                 rb.AddExplosionForce(pushForce, transform.position, radius, upwardsModifier, ForceMode.Impulse);
             }
         }
+    }
+
+    public void ThrowRelic(float charge)
+    {
+        directionForThrow = holder.transform.forward;
+        Drop();
+        rb.AddForce((directionForThrow * charge), ForceMode.Force);
     }
 }

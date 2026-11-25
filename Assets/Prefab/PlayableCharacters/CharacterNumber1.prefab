@@ -210,6 +210,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6450212582555329817}
+        m_TargetAssemblyTypeName: PlayerLogic, Assembly-CSharp
+        m_MethodName: ThrowRelicPlayer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c09f0b67-09ae-4a11-bd8f-66654fc9962a
+    m_ActionName: 'Player/ThrowRelic[/XInputControllerWindows/buttonEast]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -291,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Combat
   attackHitbox: {fileID: 687988056233343392}
-  attackSphere: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!65 &687988056233343392
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -454,7 +470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de89c9c72ad1cdb42bc84b650e2d893e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackSphere
-  sphereOffset: {x: 0, y: 0, z: 0}
   attackLayers:
     serializedVersion: 2
     m_Bits: 4352
