@@ -110,7 +110,7 @@ public class Relic : MonoBehaviour, IDamageable
     {
         if (holder != null || other.isTrigger) return;
 
-        PlayerLogic player = other.GetComponentInParent<PlayerLogic>();
+        PlayerLogic player = other.GetComponent<PlayerLogic>();
         if (player == null || player.knockedDown || player.stunned) return;
 
         holder = player;

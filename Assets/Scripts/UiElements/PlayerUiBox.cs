@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerUiBox : MonoBehaviour
 {
+    [SerializeField] UiSpringFill healthBar;
     [SerializeField] Image playerBar;
-    [SerializeField] Image healthBarFill;
     [SerializeField] Image rageBarFill;
     [SerializeField] TextMeshProUGUI scoreMesh;
     [SerializeField] DamageNumberGUI pointPop;
@@ -18,11 +18,12 @@ public class PlayerUiBox : MonoBehaviour
     }
 
     public void FillBox() {
+        healthBar.SnapHealth(0);
+        healthBar.SetHealth(1);
         //take in player information and fill the boxes accordingly
         currentScore = 0; // can be changed so save previous levels or something
         scoreMesh.text = currentScore.ToString();
         rageBarFill.fillAmount = 0;
-        healthBarFill.fillAmount = 1;
         gameObject.SetActive(true);
     }
 

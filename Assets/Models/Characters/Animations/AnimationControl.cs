@@ -4,9 +4,9 @@ public class AnimationControl : MonoBehaviour
 {
     public Animator anim;
 
-    public void SetRun()
+    public void SetRun(bool isMoving)
     {
-        anim.SetBool("Running", true);
+        anim.SetBool("Running", isMoving);
     }
     public void SetAttack()
     {

@@ -47,17 +47,66 @@ public class GoofyPlayerController : MonoBehaviour {
     private float jumpBufferTimer;
     private bool jumpHeld;
 
+    PlayerInput playerInput;
+
+    private InputAction moveAction;
+    private InputAction jumpAction;
+    [SerializeField] bool isMoving = false;
+
+    [Header("Animation Controller")]
+    [SerializeField] AnimationControl animationControl;
+
     private void Awake() {
         rb = GetComponent<Rigidbody>();
+        animationControl = GetComponentInChildren<AnimationControl>();
         rb.constraints = RigidbodyConstraints.None;
+
+        //map the controls
+        playerInput = GetComponent<PlayerInput>();
+        playerInput.SwitchCurrentActionMap("Player");
+
+        moveAction = playerInput.actions["Move"];
+        jumpAction = playerInput.actions["Jump"];
+
+        //assign the input actions here, assigning dynamic functions wont work on multiple controllers
+        if (moveAction != null) {
+            moveAction.performed += OnMove;
+            moveAction.canceled += OnStop;
+        }
+        if (jumpAction != null) {
+            jumpAction.started += OnJump;
+            jumpAction.canceled += OnJump;
+        }
+
 
         if (Camera.main != null) {
             cameraTransform = Camera.main.transform;
         }
     }
 
+    private void OnDisable() {
+        if (moveAction != null) {
+            moveAction.performed -= OnMove;
+            moveAction.canceled -= OnStop;
+        }
+
+        if (jumpAction != null) {
+            jumpAction.started -= OnJump;
+            jumpAction.canceled -= OnJump;
+        }
+    }
+
+    private void LateUpdate() {
+        animationControl.SetRun(isMoving);
+    }
+
     public void OnMove(InputAction.CallbackContext context) {
         moveInput = context.ReadValue<Vector2>();
+        isMoving = true;
+    }
+
+    public void OnStop(InputAction.CallbackContext context) {
+        isMoving = false;
     }
 
     public void OnJump(InputAction.CallbackContext context) {
@@ -71,6 +120,7 @@ public class GoofyPlayerController : MonoBehaviour {
     }
 
     private void Update() {
+
         if (isGrounded) {
             coyoteTimer = coyoteTime;
         }
