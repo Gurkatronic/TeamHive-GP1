@@ -87,7 +87,7 @@ public class ControllerDetector : MonoBehaviour
         }
     }
     private void OnAnyButtonPress(InputControl control) {
-        Debug.Log("Some button pressed");
+        //Debug.Log("Some button pressed");
         if(currentState == ControllerDetectorState.Detection) {
             Debug.Log("Controller detector is just looking right now");
             return;
@@ -95,7 +95,7 @@ public class ControllerDetector : MonoBehaviour
         //Check what type of device it is. Should map this so keyboard can be used for one controller scheme
         // Ignore keyboards, mice, or non-gamepad devices
         if (control.device is not Gamepad gamepad) {
-            Debug.Log("This is not a gamepad");
+            //Debug.Log("This is not a gamepad");
             return;
         }
 

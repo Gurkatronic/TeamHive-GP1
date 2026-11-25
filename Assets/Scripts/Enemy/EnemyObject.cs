@@ -23,6 +23,10 @@ public abstract class EnemyObject : MonoBehaviour
     [SerializeField] protected float spawnTime = 0.5f;
     protected ActionTimer spawnTimer;
 
+    [Header("Health Settings")]
+    [SerializeField] protected int maxHealth = 50;
+    [SerializeField] protected int currentHealth;
+
     [Header("Search Settings")]
     [SerializeField] protected float playerSearchRange = 5f;
     [SerializeField] protected LayerMask playerLayer;
@@ -66,6 +70,7 @@ public abstract class EnemyObject : MonoBehaviour
 
     public virtual void SpawnEnemy(Vector3 spawnPos) {
         currentState = EnemyState.Spawning;
+        currentHealth = maxHealth;
         transform.position = spawnPos;
     }
 
@@ -184,5 +189,10 @@ public abstract class EnemyObject : MonoBehaviour
     protected virtual void EnemyStunned() {
         stunTimer.ResetTimer();
         currentState = EnemyState.Stunned;
+    }
+
+    protected virtual void EnemyDead() {
+        Debug.LogWarning("ENEMY DEAD");
+        Destroy(gameObject);
     }
 }

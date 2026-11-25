@@ -68,6 +68,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98277b2d23e3d4c44b48669bd280d70f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8888819529206634896}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98277b2d23e3d4c44b48669bd280d70f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7033481374308671529}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98277b2d23e3d4c44b48669bd280d70f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7043302364544119087}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98277b2d23e3d4c44b48669bd280d70f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6202569261917980022}
   m_SourcePrefab: {fileID: 100100000, guid: 98277b2d23e3d4c44b48669bd280d70f, type: 3}
 --- !u!1 &315391191767062079 stripped
 GameObject:
@@ -234,7 +243,19 @@ MonoBehaviour:
     m_ActionId: 6b444451-8a00-4d00-a97e-f47457f736a8
     m_ActionName: 'Player/Look[/Mouse/delta]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7043302364544119087}
+        m_TargetAssemblyTypeName: Combat, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6c2ab1b8-8984-453a-af3d-a3c78ae1679a
     m_ActionName: 'Player/Attack[/Mouse/leftButton,/Keyboard/enter]'
   - m_PersistentCalls:
@@ -274,7 +295,19 @@ MonoBehaviour:
     m_ActionId: 641cd816-40e6-41b4-8c3d-04687c349290
     m_ActionName: 'Player/Sprint[/Keyboard/leftShift]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7033481374308671529}
+        m_TargetAssemblyTypeName: PlayerLogic, Assembly-CSharp
+        m_MethodName: ThrowRelicPlayer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c09f0b67-09ae-4a11-bd8f-66654fc9962a
     m_ActionName: Player/ThrowRelic
   - m_PersistentCalls:
@@ -317,8 +350,77 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard&Mouse
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: 
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7033481374308671529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315391191767062079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419690b00386470409a8f7f3ab1779b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLogic
+  playerIndex: 0
+  health: 100
+  damage: 10
+  killStreak: 0
+  streakNeededForRage: 10
+  knockedDown: 0
+  rageMode: 0
+  attackCooldown: 0.2
+  lastAttackTime: 0
+  attackDuration: 0.05
+  rageAttackCooldown: 0.05
+  rageAttackDuration: 0.02
+  time: 0
+  score: 0
+  pointsPerKill: 100
+  streakBonusPerKill: 0.1
+  relicScoreMultiplier: 2
+  hasRelic: 0
+  relicSpeedMultiplier: 1
+  stunned: 0
+  stunTimeLeft: 0
+  throwChargeStartTime: 0
+--- !u!114 &7043302364544119087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315391191767062079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df9452e32a6b4a44b7bcdf7da3dea88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Combat
+  attackHitbox: {fileID: 6202569261917980022}
+  audioSource: {fileID: 0}
+--- !u!65 &6202569261917980022
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315391191767062079}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 3.79519, z: 2.0372076}
+  m_Center: {x: 0, y: 1.397595, z: 1.4513798}
