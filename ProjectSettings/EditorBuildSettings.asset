@@ -5,8 +5,11 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: c15d2193cd7ad7646b3445f2d7ed9701
+  - enabled: 1
+    path: Assets/Scenes/NoahScene.unity
+    guid: 08e7c908874217648b7f710d704414cb
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

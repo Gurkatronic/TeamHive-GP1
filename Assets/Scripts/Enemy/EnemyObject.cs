@@ -23,6 +23,9 @@ public abstract class EnemyObject : MonoBehaviour
     [SerializeField] protected float spawnTime = 0.5f;
     protected ActionTimer spawnTimer;
 
+    [Header("Sound Stuff")]
+    [SerializeField] protected AudioSource audioSource;
+
     [Header("Health Settings")]
     [SerializeField] protected int maxHealth = 50;
     [SerializeField] protected int currentHealth;
@@ -57,7 +60,9 @@ public abstract class EnemyObject : MonoBehaviour
     private void Awake() {
         if (rb == null)
             rb = GetComponent<Rigidbody>();
-
+        if(audioSource == null) {
+            audioSource = GetComponent<AudioSource>();
+        }
         attackTimer = new(attackSpeed, attackCooldown);
         stunTimer = new(stunTime);
         spawnTimer = new(spawnTime);

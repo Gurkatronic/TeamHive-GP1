@@ -42,9 +42,6 @@ public enum RandomAudioType {
     GhostHit,
     ZombieHittingSomeone,
     GhostHittingSomeone,
-
-
-
 }
 
 public class SoundManager : MonoBehaviour
@@ -65,6 +62,8 @@ public class SoundManager : MonoBehaviour
     [Header("Lists fills based on the amount of types. Just attach audiofiles.")]
     [SerializeField] private List<SingleAudio> singleAudios = new();
     [SerializeField] private List<RandomAudio> randomAudios = new();
+
+    [SerializeField] private AudioSource bgSoundSource;
 
 
     /// <summary>
@@ -141,6 +140,24 @@ public class SoundManager : MonoBehaviour
         else {
             Destroy(this.gameObject);
         }
+        Debug.Log("soundmanager");
+        for(int i = 0; i < randomAudios.Count; i++) {
+            for(int x = 0; x < randomAudios[i].audioClips.Length; x++) {
+                Debug.Log(randomAudios[i].audioClips[x].name);
+            }
+        }
+
+        if(bgSoundSource == null) {
+            bgSoundSource = GetComponent<AudioSource>();
+        }
+    }
+
+    public void StartMusic() {
+        bgSoundSource.Play();
+    }
+
+    public void StopMusic() {
+        bgSoundSource.Stop();
     }
 
 

@@ -3,7 +3,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class GameManager : MonoBehaviour
 {
@@ -74,6 +73,7 @@ public class GameManager : MonoBehaviour
 
         scoreManager = new(currentPlayerCount);
         uiManager.StartClock();
+        SoundManager.Instance.StartMusic();
         roomEnemySpawner.spawnActive = true;
     }
     public void KickPlayer() {
@@ -82,17 +82,18 @@ public class GameManager : MonoBehaviour
 
     public void GameLost() {
         uiManager.GameOverShow();
+        SoundManager.Instance.StopMusic();
         Time.timeScale = 0;
     }
 
     public void GameWon() {
         uiManager.GameWonShow();
+        SoundManager.Instance.StopMusic();
         Time.timeScale = 0;
     }
 
     public void RestartPrototype() {
-        Scene activeScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(activeScene.buildIndex);
+        Application.Quit();
     }
 
 }

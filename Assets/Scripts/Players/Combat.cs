@@ -9,6 +9,7 @@ public class Combat : MonoBehaviour
     private void Awake()
     {
         playerLogic = GetComponent<PlayerLogic>();
+        audioSource = GetComponent<AudioSource>();
     }
     public void OnAttack()
     {
@@ -49,7 +50,8 @@ public class Combat : MonoBehaviour
                 if (damageable != null)
                 {
                     playerLogic.AddKills(damageable.OnDamage(playerLogic.damage));
-                    Debug.Log("Player attacked here <-------------------------");
+                    
+                    
                 }
             }
 
@@ -62,6 +64,7 @@ public class Combat : MonoBehaviour
                 if (damageable != null)
                 {
                     playerLogic.AddKills(damageable.OnDamage(playerLogic.damage));
+                    SoundManager.Instance.PlayRandomSound(RandomAudioType.Punch, audioSource);
                     Debug.Log("Player attacked here <-------------------------");
                     if (playerLogic.killStreak >= playerLogic.streakNeededForRage)
                     {

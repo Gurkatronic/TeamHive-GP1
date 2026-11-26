@@ -14,8 +14,10 @@ public class NewEnemy : EnemyObject, IDamageable{
             EnemyDead();
             return 1;
         }
-        else
+        else {
+            SoundManager.Instance.PlayRandomSound(RandomAudioType.GhostHit, audioSource);
             return 0;
+        }
     }
 
     protected override void AwakeLoad() {

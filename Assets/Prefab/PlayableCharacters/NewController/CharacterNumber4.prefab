@@ -2035,7 +2035,8 @@ MonoBehaviour:
   lowJumpGravityMultiplier: 3
   coyoteTime: 0.15
   jumpBufferTime: 0.15
-  isIdle: 1
+  isMoving: 0
+  animationControl: {fileID: 0}
 --- !u!114 &4847652314522469369
 MonoBehaviour:
   m_ObjectHideFlags: 0

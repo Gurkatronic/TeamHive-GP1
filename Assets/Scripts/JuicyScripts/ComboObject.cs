@@ -64,6 +64,10 @@ public class ComboObject : MonoBehaviour, IPunchable {
             col = GetComponent<Collider>();
         }
 
+        if(audioSource == null) {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
         defaultExcludeLayers = col.excludeLayers;
 
         testPunch.Enable();
@@ -97,7 +101,7 @@ public class ComboObject : MonoBehaviour, IPunchable {
         }
         attacked?.Invoke();
         //Sound goes here
-        SoundManager.Instance.PlayRandomSound(RandomAudioType.GuitarRiff, audioSource);                
+        //SoundManager.Instance.PlayRandomSound(RandomAudioType.GuitarRiff, audioSource);                
         anchorPos = transform.position;
 
         if (punchRoutine != null) {
@@ -120,14 +124,14 @@ public class ComboObject : MonoBehaviour, IPunchable {
             isComboActive = false;
             //Finished combo
             punchRoutine = StartCoroutine(FlyAnimation(lastHitDir, 1f));
-            SoundManager.Instance.PlaySingleSound(SingleAudioType.ComboSuccess, audioSource);
+            //SoundManager.Instance.PlaySingleSound(SingleAudioType.ComboSuccess, audioSource);
         }
     }
 
     private void DropCombo() {
         isComboActive = false;
         Debug.Log("Combo failed");
-        SoundManager.Instance.PlaySingleSound(SingleAudioType.ComboFail, audioSource);
+        //SoundManager.Instance.PlaySingleSound(SingleAudioType.ComboFail, audioSource);
         currentPunch = maxPunch;
 
 

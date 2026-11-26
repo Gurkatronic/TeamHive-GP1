@@ -1,8 +1,21 @@
+using System;
 using UnityEngine;
 
 public class Relic : MonoBehaviour, IDamageable
 {
+    [Serializable]
+    public class RelicSounds {
+        [SerializeField] public AudioClip pickSound;
+        [SerializeField] public AudioClip dropSound;
+        [SerializeField] public AudioClip shockWaveSound;
+        [SerializeField] public AudioClip relicDeath;
+        [SerializeField] public AudioClip relicDamaged;
+        [SerializeField] public AudioClip relicWhispers;
+    }
     public static Relic Instance;
+
+    [SerializeField] RelicSounds sounds;
+    [SerializeField] AudioSource audioSource;
     [SerializeField] Rigidbody rb;
     [SerializeField] int maxHealth = 100;
     [SerializeField] int currentHealth;
@@ -115,6 +128,7 @@ public class Relic : MonoBehaviour, IDamageable
         if (player == null || player.knockedDown || player.stunned) return;
 
         holder = player;
+        audioSource.PlayOneShot(sounds.pickSound);
         holder.hasRelic = true;
         holder.throwChargeStartTime = 0f;
         relicCollider.enabled = false;
@@ -128,6 +142,7 @@ public class Relic : MonoBehaviour, IDamageable
         holder.relicSpeedMultiplier = 1f;
         holder = null;
         cooldownTimer = pickupCooldown;
+        audioSource.PlayOneShot(sounds.dropSound);
         Debug.Log("relic dropped");
     }
 
@@ -147,19 +162,22 @@ public class Relic : MonoBehaviour, IDamageable
         TriggerPush();
         currentHealth -= damage;
         damageProtectActive = true;
-        if (currentHealth < 0)
-        {
+        if (currentHealth < 0) {
             Debug.Log("Relic is destroyed");
+            audioSource.PlayOneShot(sounds.relicDeath);
             GameManager.Instance.GameLost();
             return 1;
         }
-        else
+        else {
+            audioSource.PlayOneShot(sounds.relicDamaged);
             return 0;
+        }
     }
 
     public void TriggerPush()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, affectedLayers);
+        audioSource.PlayOneShot(sounds.shockWaveSound);
 
         foreach (Collider hit in hitColliders)
         {
