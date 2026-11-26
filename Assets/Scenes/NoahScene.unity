@@ -3671,8 +3671,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 23.682678}
-  m_Center: {x: 0, y: 0, z: 11.341338}
+  m_Size: {x: 1, y: 2.785569, z: 23.682678}
+  m_Center: {x: 0, y: 0.892785, z: 11.341338}
 --- !u!23 &341090360
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6706,7 +6706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &646666654
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6970,8 +6970,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 23.682678}
-  m_Center: {x: 0, y: 0, z: 11.341338}
+  m_Size: {x: 1, y: 2.4620173, z: 23.682678}
+  m_Center: {x: 0, y: 0.73100907, z: 11.341338}
 --- !u!23 &679937625
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9394,6 +9394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de89c9c72ad1cdb42bc84b650e2d893e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackSphere
+  radius: 3
   sphereOffset: {x: 0, y: 0, z: 0}
   attackLayers:
     serializedVersion: 2
@@ -10822,8 +10823,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 29.124853}
-  m_Center: {x: -6.250977e-15, y: 0, z: 14.062425}
+  m_Size: {x: 1.0057232, y: 2.0798519, z: 29.124853}
+  m_Center: {x: -0.0028616977, y: 0.53992677, z: 14.062426}
 --- !u!23 &1127523811
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10934,8 +10935,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 24.549397}
-  m_Center: {x: -6.044134e-15, y: 0, z: -11.7747}
+  m_Size: {x: 1, y: 2.8905187, z: 24.549397}
+  m_Center: {x: -5.4190995e-15, y: 0.9452602, z: -11.7747}
 --- !u!23 &1131760887
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13020,7 +13021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!73398921 &1404436440
 VFXRenderer:
   serializedVersion: 1
@@ -13029,7 +13030,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404436439}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -15038,6 +15039,118 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 847751561}
   m_SourcePrefab: {fileID: 100100000, guid: 0a3b7d62753b78b418da2ecbef2009d8, type: 3}
+--- !u!1 &1626373645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1626373646}
+  - component: {fileID: 1626373649}
+  - component: {fileID: 1626373648}
+  - component: {fileID: 1626373647}
+  m_Layer: 6
+  m_Name: Roof
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1626373646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626373645}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 20.1073, y: 15, z: 0.6}
+  m_LocalScale: {x: 41.91142, y: 8.83882, z: 0.08676142}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 2039269057}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &1626373647
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626373645}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 4.1929474, z: 23.68268}
+  m_Center: {x: 0, y: -0.1344557, z: 11.341339}
+--- !u!23 &1626373648
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626373645}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1626373649
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626373645}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1629669458 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 14e670388a9477b439975b5d17a658d4, type: 3}
@@ -17609,6 +17722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de89c9c72ad1cdb42bc84b650e2d893e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackSphere
+  radius: 3
   sphereOffset: {x: 0, y: 0, z: 0}
   attackLayers:
     serializedVersion: 2
@@ -17790,6 +17904,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 660ab6916a01c934e83dde0dec99e6f6, type: 2}
   - {fileID: 11400000, guid: 4d44d7fb7d5796a4ca7a87b2d6cc375c, type: 2}
   - {fileID: 11400000, guid: 43c98f7cb20ae374091c0bde6c13a98f, type: 2}
+  debugPlayerSounds: []
   debugmode: 1
 --- !u!4 &1929709542
 Transform:
@@ -18201,6 +18316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de89c9c72ad1cdb42bc84b650e2d893e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackSphere
+  radius: 3
   sphereOffset: {x: 0, y: 0, z: 0}
   attackLayers:
     serializedVersion: 2
@@ -18434,6 +18550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de89c9c72ad1cdb42bc84b650e2d893e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackSphere
+  radius: 3
   sphereOffset: {x: 0, y: 0, z: 0}
   attackLayers:
     serializedVersion: 2
@@ -19045,6 +19162,7 @@ Transform:
   - {fileID: 1127523813}
   - {fileID: 341090362}
   - {fileID: 679937623}
+  - {fileID: 1626373646}
   - {fileID: 1690988172}
   - {fileID: 512628218}
   - {fileID: 1588745887}

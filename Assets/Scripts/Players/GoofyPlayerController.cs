@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody), typeof(CapsuleCollider))]
+[RequireComponent(typeof(Rigidbody), typeof(CapsuleCollider), typeof(Rigidbody))]
 public class GoofyPlayerController : MonoBehaviour {
     [Header("Hover Spring")]
     [SerializeField] private float rideHeight = 1.2f;
@@ -34,6 +34,7 @@ public class GoofyPlayerController : MonoBehaviour {
     [SerializeField] private float lowJumpGravityMultiplier = 3f;
     [SerializeField] private float coyoteTime = 0.15f;
     [SerializeField] private float jumpBufferTime = 0.15f;
+    private PlayerLogic playerLogic;
 
     private Rigidbody rb;
     private Transform cameraTransform;
@@ -60,6 +61,7 @@ public class GoofyPlayerController : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         animationControl = GetComponentInChildren<AnimationControl>();
         rb.constraints = RigidbodyConstraints.None;
+        playerLogic = GetComponent<PlayerLogic>();
 
         //map the controls
         playerInput = GetComponent<PlayerInput>();
@@ -101,6 +103,11 @@ public class GoofyPlayerController : MonoBehaviour {
     }
 
     public void OnMove(InputAction.CallbackContext context) {
+        if (playerLogic.stunned)
+        {
+            isMoving = false;
+            return;
+        }
         moveInput = context.ReadValue<Vector2>();
         isMoving = true;
     }
@@ -110,6 +117,7 @@ public class GoofyPlayerController : MonoBehaviour {
     }
 
     public void OnJump(InputAction.CallbackContext context) {
+        if (playerLogic.stunned) return;
         if (context.started) {
             jumpBufferTimer = jumpBufferTime;
             jumpHeld = true;

@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public UiManager uiManager;
     [SerializeField] SessionPackage currentSession;
     [SerializeField] PlayableCharacterScriptableObject[] debugPlayerScripts;
+    [SerializeField] PlayerSounds[] debugPlayerSounds;
     int currentPlayerCount;
     public bool debugmode = false;
 
@@ -22,6 +23,11 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+
+        debugPlayerSounds = new PlayerSounds[debugPlayerScripts.Length];
+        for(int i = 0; i < debugPlayerScripts.Length; i++) {
+            debugPlayerSounds[i] = debugPlayerScripts[i].playerSounds;
+        }
         
 
         if (roomEnemySpawner == null) {
@@ -63,8 +69,17 @@ public class GameManager : MonoBehaviour
             GameObject prefab = currentSession.activePlayers[i].characterPrefab;
             PlayerInput player = PlayerInput.Instantiate(prefab, playerIndex: playerSlot.slotIndex, controlScheme: "Gamepad", pairWithDevice: playerSlot.gamepad);
             PlayerLogic pLogic = player.GetComponent<PlayerLogic>();
-            if(pLogic == null) {
+            if (debugPlayerSounds[i] != null) {
+                pLogic.SendAudioClips(debugPlayerSounds[i]);
+            }
+            else {
+                Debug.Log("Debug player scripts player sound is empty");
+            }
+
+            if (pLogic == null) {
                 Debug.Log("Player logic can not be found on the spawned player.");
+                // <---------------------------------------------------------------THIS IS JUST DEBUG
+                
             }
             else {
                 pLogic.playerIndex = i;

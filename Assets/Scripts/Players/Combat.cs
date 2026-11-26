@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Combat : MonoBehaviour
@@ -5,6 +6,7 @@ public class Combat : MonoBehaviour
     PlayerLogic playerLogic;
     [SerializeField] BoxCollider attackHitbox;
     [SerializeField] AudioSource audioSource;
+    public ParticleSystem rageParticleSystem;
 
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class Combat : MonoBehaviour
     public void EnableHitbox()
     {
         attackHitbox.enabled = true;
+        //spela ljud om ingen collider är damageble, annars annat ljud, använd bool i OnTriggerEnter för att kolla om det är damageble eller inte
     }
 
     void Update()
@@ -50,8 +53,6 @@ public class Combat : MonoBehaviour
                 if (damageable != null)
                 {
                     playerLogic.AddKills(damageable.OnDamage(playerLogic.damage));
-                    
-                    
                 }
             }
 
@@ -68,7 +69,9 @@ public class Combat : MonoBehaviour
                     Debug.Log("Player attacked here <-------------------------");
                     if (playerLogic.killStreak >= playerLogic.streakNeededForRage)
                     {
+                        audioSource.PlayOneShot(playerLogic.GetSoundEffect(PlayerSoundType.Ragemode));
                         playerLogic.rageMode = true;
+                        rageParticleSystem.Play();
                     }
                 }
             }

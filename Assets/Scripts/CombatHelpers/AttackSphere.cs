@@ -4,7 +4,7 @@ using UnityEngine;
 public class AttackSphere : MonoBehaviour
 {
     float range = 2f;
-    float radius = 3f;
+    public float radius = 3f;
     public Vector3 sphereOffset;
     public LayerMask attackLayers;
 

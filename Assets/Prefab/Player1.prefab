@@ -88,9 +88,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d158823e61aa62949a580bed83ee6238, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3068712551417277922}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d158823e61aa62949a580bed83ee6238, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6895212993633729694}
   m_SourcePrefab: {fileID: 100100000, guid: d158823e61aa62949a580bed83ee6238, type: 3}
 --- !u!1 &5845619688254955292 stripped
 GameObject:
@@ -228,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   rb: {fileID: -376985538288645325}
+  audioSource: {fileID: 3068712551417277922}
 --- !u!54 &-376985538288645325
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -291,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Combat
   attackHitbox: {fileID: -7944074497557852896}
-  attackSphere: {fileID: 0}
+  audioSource: {fileID: 3068712551417277922}
 --- !u!65 &-7944074497557852896
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -337,14 +335,6 @@ MonoBehaviour:
   rageAttackCooldown: 0.05
   rageAttackDuration: 0.05
   time: 0
-  score: 0
-  pointsPerKill: 100
-  streakBonusPerKill: 0.1
-  relicScoreMultiplier: 2
-  hasRelic: 0
-  relicSpeedMultiplier: 1
-  stunned: 0
-  stunTimeLeft: 0
 --- !u!82 &3068712551417277922
 AudioSource:
   m_ObjectHideFlags: 0
@@ -442,19 +432,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6895212993633729694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5845619688254955292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de89c9c72ad1cdb42bc84b650e2d893e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AttackSphere
-  sphereOffset: {x: 0, y: 0, z: 0}
-  attackLayers:
-    serializedVersion: 2
-    m_Bits: 0
