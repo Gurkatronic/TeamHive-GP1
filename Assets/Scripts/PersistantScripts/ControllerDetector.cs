@@ -175,11 +175,12 @@ public class ControllerDetector : MonoBehaviour
     }
 
     ControllerGlyphsScriptableObject CheckControllerGlyphs(Gamepad gamepad) {
-        string gamepadName = gamepad.name;
+        string gamepadName = gamepad.displayName;
         gamepadName = gamepadName.ToLower();
 
         foreach(ControllerTypes key in masterGlyphLibrary.Keys) {
             foreach (string keyword in masterGlyphLibrary[key].controllerKeywords) {
+                Debug.Log("gamepadname: " + gamepadName + " keyword: " + keyword);
                 if(gamepadName.Contains(keyword, StringComparison.OrdinalIgnoreCase)) {
                     return masterGlyphLibrary[key];
                 }

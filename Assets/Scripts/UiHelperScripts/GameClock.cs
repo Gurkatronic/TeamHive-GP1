@@ -11,6 +11,7 @@ public class GameClock : MonoBehaviour
     [SerializeField] float currentTime;
 
     bool finished = false;
+    bool startedClock = false;
     public bool clockWise = false;
 
     private void Awake() {
@@ -18,13 +19,14 @@ public class GameClock : MonoBehaviour
     }
 
     private void Update() {
-        if (finished)
+        if (finished || !startedClock)
             return;
+
             currentTime += Time.deltaTime;
         if (currentTime >= maxTime) {
             clockArm.rotation = Quaternion.Euler(0, 0, 0);
             clockBgFill.fillAmount = 1f;
-            finished = true;
+            ClockHasFinished();
         }
         else {
             float rotateValue = 360 / maxTime;
@@ -36,11 +38,20 @@ public class GameClock : MonoBehaviour
         }
     }
 
+    void ClockHasFinished() {
+        finished = true;
+        GameManager.Instance.GameWon();
+    }
+
     [Button("Reset Clock")]
     void ResetClock() {
         currentTime = 0;
         clockArm.rotation = Quaternion.Euler(0, 0, 0);
         clockBgFill.fillAmount = 0;
         finished = false;
+    }
+
+    public void StartClock() {
+        startedClock = true;
     }
 }

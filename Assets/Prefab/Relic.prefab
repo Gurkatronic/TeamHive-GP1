@@ -125,9 +125,9 @@ GameObject:
   - component: {fileID: 6688886833619961281}
   - component: {fileID: 1237692890243773614}
   - component: {fileID: 687454457750377042}
-  - component: {fileID: 1834110150451225138}
   - component: {fileID: 1116190936461512809}
   - component: {fileID: 7988836726494665308}
+  - component: {fileID: 1834110150451225138}
   - component: {fileID: 3704448465121094118}
   m_Layer: 9
   m_Name: Relic
@@ -209,27 +209,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1834110150451225138
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006586201757708355}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 2
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1116190936461512809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +236,8 @@ MonoBehaviour:
   holdTimer: 0
   upwardLift: 20
   throwStrength: 10
+  damageProtectActive: 0
+  protectMaxTime: 2
   radius: 5
   pushForce: 500
   upwardsModifier: 0.5
@@ -290,6 +271,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &1834110150451225138
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006586201757708355}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 2
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5742726, y: 2.6941695, z: 1.8859329}
+  m_Center: {x: -0.051832438, y: 0.84708476, z: 0.09996033}
 --- !u!135 &3704448465121094118
 SphereCollider:
   m_ObjectHideFlags: 0

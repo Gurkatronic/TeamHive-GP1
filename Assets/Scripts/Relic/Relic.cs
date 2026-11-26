@@ -108,6 +108,7 @@ public class Relic : MonoBehaviour, IDamageable
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Collider touching relic: " + other.gameObject.name);
         if (holder != null || other.isTrigger) return;
 
         PlayerLogic player = other.GetComponent<PlayerLogic>();
@@ -149,6 +150,7 @@ public class Relic : MonoBehaviour, IDamageable
         if (currentHealth < 0)
         {
             Debug.Log("Relic is destroyed");
+            GameManager.Instance.GameLost();
             return 1;
         }
         else

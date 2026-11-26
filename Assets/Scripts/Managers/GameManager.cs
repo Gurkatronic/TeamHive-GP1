@@ -2,6 +2,7 @@ using NaughtyAttributes;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class GameManager : MonoBehaviour
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+        
 
         if (roomEnemySpawner == null) {
             roomEnemySpawner = FindAnyObjectByType<RoomEnemySpawner>();
@@ -70,10 +72,27 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        scoreManager = new(currentPlayerCount);
+        uiManager.StartClock();
         roomEnemySpawner.spawnActive = true;
     }
     public void KickPlayer() {
         
+    }
+
+    public void GameLost() {
+        uiManager.GameOverShow();
+        Time.timeScale = 0;
+    }
+
+    public void GameWon() {
+        uiManager.GameWonShow();
+        Time.timeScale = 0;
+    }
+
+    public void RestartPrototype() {
+        Scene activeScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(activeScene.buildIndex);
     }
 
 }
