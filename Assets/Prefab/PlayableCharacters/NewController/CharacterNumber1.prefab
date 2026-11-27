@@ -1894,6 +1894,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419690b00386470409a8f7f3ab1779b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  playerSounds:
+    soundDict: []
   playerIndex: 0
   health: 100
   damage: 10
@@ -1906,6 +1908,7 @@ MonoBehaviour:
   attackDuration: 0.05
   rageAttackCooldown: 0.05
   rageAttackDuration: 0.05
+  knockedDownTime: 10
   killStreakTime: 0
   killstreakDuration: 5
   time: 0
@@ -1918,6 +1921,7 @@ MonoBehaviour:
   stunned: 0
   stunTimeLeft: 0
   throwChargeStartTime: 0
+  scoreLossOnDeath: 1000
 --- !u!82 &2619047880096278009
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2134,19 +2138,7 @@ MonoBehaviour:
       - m_Target: {fileID: 6863061222431515935}
         m_TargetAssemblyTypeName: Combat, Assembly-CSharp
         m_MethodName: OnAttack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1247855964902804439}
-        m_TargetAssemblyTypeName: AnimationControl, Assembly-CSharp
-        m_MethodName: SetAttack
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

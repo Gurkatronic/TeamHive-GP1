@@ -103,7 +103,7 @@ public class GoofyPlayerController : MonoBehaviour {
     }
 
     public void OnMove(InputAction.CallbackContext context) {
-        if (playerLogic.stunned)
+        if (playerLogic.stunned || playerLogic.knockedDown)
         {
             isMoving = false;
             return;
@@ -117,7 +117,7 @@ public class GoofyPlayerController : MonoBehaviour {
     }
 
     public void OnJump(InputAction.CallbackContext context) {
-        if (playerLogic.stunned) return;
+        if (playerLogic.stunned || playerLogic.knockedDown) return;
         if (context.started) {
             jumpBufferTimer = jumpBufferTime;
             jumpHeld = true;

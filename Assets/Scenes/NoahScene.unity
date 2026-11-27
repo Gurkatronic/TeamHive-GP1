@@ -2813,7 +2813,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.4812656, g: 0.6793268, b: 0.990566, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3335,7 +3335,7 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 0.69787604, b: 0.43867922, a: 1}
   m_Intensity: 392.2
-  m_Range: 20
+  m_Range: 48.18316
   m_SpotAngle: 179
   m_InnerSpotAngle: 0
   m_CookieSize2D: {x: 0.5, y: 0.5}
@@ -3397,7 +3397,7 @@ Transform:
   m_GameObject: {fileID: 324363498}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -7.76, y: 7.88, z: 0.2}
+  m_LocalPosition: {x: -7.76, y: 17.48, z: 0.2}
   m_LocalScale: {x: 0.6719472, y: 0.6719472, z: 0.6719472}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4742,7 +4742,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6449970371678779929, guid: dda9f062bc77af344a8a50118b8d333b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2006586201757708355, guid: dda9f062bc77af344a8a50118b8d333b, type: 3}
@@ -8549,7 +8550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 866422052}
-  - component: {fileID: 866422051}
+  - component: {fileID: 866422053}
   m_Layer: 0
   m_Name: NavMesh
   m_TagString: Untagged
@@ -8557,38 +8558,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &866422051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866422050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
-  m_SerializedVersion: 0
-  m_AgentTypeID: -1372625422
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 246
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 4f3cac7ae534de54aa3925a3335c9bc8, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!4 &866422052
 Transform:
   m_ObjectHideFlags: 0
@@ -8605,6 +8574,38 @@ Transform:
   - {fileID: 2039269057}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &866422053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866422050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.33333334
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 56fdcd415fed9d441b1d68d220256f26, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &876296253 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9c4150e5e03ed4c458179077d48c8879, type: 3}
@@ -9525,6 +9526,7 @@ MonoBehaviour:
   - {fileID: 1908257574}
   spawnableEnemies:
   - {fileID: 7334367720364436489, guid: 2d0c9a24657e31a498edb344b0a32531, type: 3}
+  - {fileID: 4845854689221659507, guid: dca505620eac4fb478d1eba99fab2ff1, type: 3}
   activeEnemies: []
   maxEnemies: 30
   spawnTime: 1
@@ -10470,11 +10472,11 @@ MonoBehaviour:
     - {fileID: 8300000, guid: fe7d8106fe5e8aa46a6e97cb4ef69f96, type: 3}
   - name: Whiff
     audioClips:
-    - {fileID: 8300000, guid: abe49057b5d91234284347090a7ec6d8, type: 3}
-    - {fileID: 8300000, guid: fe90cf6c236c36c49acab254f6cd38ce, type: 3}
-    - {fileID: 8300000, guid: ad352b92e3152d949b4eb68c576fa61e, type: 3}
-    - {fileID: 8300000, guid: 144daa6a727cfa945b26cabb867cca96, type: 3}
-    - {fileID: 8300000, guid: 146663343f14f2343bc2500cf24e374f, type: 3}
+    - {fileID: 8300000, guid: d63493c157a1f5145a79d3f7beb26ed3, type: 3}
+    - {fileID: 8300000, guid: 399c1fa2b3f47c44a99885de4789575b, type: 3}
+    - {fileID: 8300000, guid: 9561de9c06058094f8d0998eacb3416a, type: 3}
+    - {fileID: 8300000, guid: 5f28f2a9b84acfd4083b3dc16e815ca2, type: 3}
+    - {fileID: 8300000, guid: 9e5c170323b65d847a029bb420987a40, type: 3}
   - name: GuitarRiff
     audioClips:
     - {fileID: 8300000, guid: 4c33594115b971b41bb43a45b062102f, type: 3}

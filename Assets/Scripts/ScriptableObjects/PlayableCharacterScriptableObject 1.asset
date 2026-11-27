@@ -17,11 +17,11 @@ MonoBehaviour:
   playerSounds:
     soundDict:
     - key: 0
-      value: {fileID: 8300000, guid: 7196d83e94debef4998dcfe3a64965bf, type: 3}
+      value: {fileID: 8300000, guid: 50314301387105f45ab5c69eccc3ecde, type: 3}
     - key: 1
       value: {fileID: 8300000, guid: 32651eb9829f417428be49582da73c31, type: 3}
     - key: 2
-      value: {fileID: 8300000, guid: c54c8f0c458b6104c9a182da54cb28ea, type: 3}
+      value: {fileID: 8300000, guid: 0148825033be55f408e84cd6d8e4d280, type: 3}
     - key: 3
       value: {fileID: 8300000, guid: b7c2af6da2b600946b41d920a6e63286, type: 3}
     - key: 5

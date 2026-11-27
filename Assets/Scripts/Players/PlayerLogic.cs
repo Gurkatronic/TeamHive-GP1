@@ -18,6 +18,7 @@ public class PlayerLogic : MonoBehaviour, IDamageable
     public float attackDuration = 0.05f;
     public float rageAttackCooldown = 0.05f;
     public float rageAttackDuration = 0.02f;
+    public float knockedDownTime = 10f;
     public float killStreakTime;
     [SerializeField] private float killstreakDuration = 3f;
     public float time = 0f;
@@ -31,6 +32,7 @@ public class PlayerLogic : MonoBehaviour, IDamageable
     public float stunTimeLeft = 0f;
     public float throwChargeStartTime;
     private float throwCharge;
+    [SerializeField] int scoreLossOnDeath = 1000;
     private Combat combat;
 
     private void Awake()
@@ -59,6 +61,14 @@ public class PlayerLogic : MonoBehaviour, IDamageable
                 RageEnded();
             }
         }
+        if (knockedDown)
+        {
+            knockedDownTime -= Time.deltaTime;
+            if (knockedDownTime <= 0f)
+            {
+                Revive();
+            }
+        }
 
     }
 
@@ -74,7 +84,6 @@ public class PlayerLogic : MonoBehaviour, IDamageable
 
     public void AddKills(int kills)
     {
-
         for (int i = 0; i < kills; i++)
         {
             score += Mathf.RoundToInt(pointsPerKill * GetScoreMultiplier());
@@ -105,9 +114,7 @@ public class PlayerLogic : MonoBehaviour, IDamageable
 
         if (health <= 0)
         {
-            knockedDown = true;
-            Debug.Log("Player went down");
-            gameObject.SetActive(false);
+            KnockedDown();
             return 1;
         }
         return 0;
@@ -115,10 +122,24 @@ public class PlayerLogic : MonoBehaviour, IDamageable
 
     public void KnockedDown()
     {
+        if (stunned)
+        {
+            stunned = false;
+        }
         knockedDown = true;
         audioSource.PlayOneShot(GetSoundEffect(PlayerSoundType.Dead));
-        RageEnded();
-        //code goes here!!
+        if (rageMode) RageEnded();
+        knockedDownTime = time;
+        // animation switch to knocked down state
+        score -= scoreLossOnDeath;
+        GameManager.Instance.uiManager.IncreaseScore(playerIndex, -scoreLossOnDeath);
+    }
+    public void Revive()
+    {
+        knockedDown = false;
+        health = 100;
+        killStreak = 0;
+        // animation switch to normal state
     }
 
     public void ThrowRelicPlayer(InputAction.CallbackContext context)

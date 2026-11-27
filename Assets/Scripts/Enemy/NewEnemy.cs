@@ -1,24 +1,9 @@
 using UnityEngine;
 
 [RequireComponent(typeof(AttackSphere), typeof(ComboObject))]
-public class NewEnemy : EnemyObject, IDamageable{
+public class NewEnemy : EnemyObject{
     public ComboObject comboScript;
     public AttackSphere attackSphere;
-
-    public int OnDamage(int damage) {
-        currentHealth -= damage;
-        currentState = EnemyState.Stunned;
-        Debug.Log("Enemy takes damage");
-        if (currentHealth < 0) {
-            Debug.Log("Enemy dead");
-            EnemyDead();
-            return 1;
-        }
-        else {
-            SoundManager.Instance.PlayRandomSound(RandomAudioType.GhostHit, audioSource);
-            return 0;
-        }
-    }
 
     protected override void AwakeLoad() {
         comboScript = GetComponent<ComboObject>();
@@ -31,8 +16,9 @@ public class NewEnemy : EnemyObject, IDamageable{
     }
     protected override void EnemyAttack() {
         Collider[] hits = attackSphere.Attack();
+        SoundManager.Instance.PlayRandomSound(RandomAudioType.GhostHittingSomeone, audioSource);
 
-        for(int i = 0; i < hits.Length; i++) {
+        for (int i = 0; i < hits.Length; i++) {
             if (hits[i].gameObject != gameObject) {
                 if (hits[i].TryGetComponent(out IDamageable idmg) && !hits[i].CompareTag("Enemy")) {
                     Debug.Log("Enemy attack here");
@@ -54,6 +40,15 @@ public class NewEnemy : EnemyObject, IDamageable{
 
         rb.AddForce(moveDir * moveSpeed);
         base.FixedMove();
+    }
+
+    public override void TakingDamage(int damage) {
+        base.TakingDamage(damage);
+        SoundManager.Instance.PlayRandomSound(RandomAudioType.GhostHit, audioSource);
+    }
+
+    protected override void EnemyDead() {
+        base.EnemyDead();
     }
 
     

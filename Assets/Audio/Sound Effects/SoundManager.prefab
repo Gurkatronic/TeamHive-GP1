@@ -1,0 +1,198 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3509512794111075757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7938697157128147755}
+  - component: {fileID: 5510784966878181653}
+  - component: {fileID: 5842503473238881142}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7938697157128147755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3509512794111075757}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 523.5, y: 294.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5510784966878181653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3509512794111075757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abeeff888e198a747b25199bc8aefc58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  singleAudios:
+  - name: BowlingStrike
+    audioClip: {fileID: 0}
+  - name: BackgroundHum
+    audioClip: {fileID: 0}
+  - name: GhostScream
+    audioClip: {fileID: 0}
+  - name: ZombieMoan
+    audioClip: {fileID: 0}
+  - name: ComboFail
+    audioClip: {fileID: 8300000, guid: 5811ed859241d154fbff01b352360d82, type: 3}
+  - name: ComboSuccess
+    audioClip: {fileID: 8300000, guid: 0c988bd331dda4f4e920f399f06760f2, type: 3}
+  randomAudios:
+  - name: Punch
+    audioClips:
+    - {fileID: 8300000, guid: 7d2d978abcd40ae47b3a19ea03ad60bd, type: 3}
+    - {fileID: 8300000, guid: 75a8b85a8c8d9414db4d82debc2cd357, type: 3}
+  - name: Shove
+    audioClips:
+    - {fileID: 8300000, guid: 0d220ffddd5869e479718c26a14c7c86, type: 3}
+  - name: Wind
+    audioClips:
+    - {fileID: 8300000, guid: 018a1aab2bc73744bbca877e175611dc, type: 3}
+  - name: Whiff
+    audioClips:
+    - {fileID: 8300000, guid: d63493c157a1f5145a79d3f7beb26ed3, type: 3}
+    - {fileID: 8300000, guid: 399c1fa2b3f47c44a99885de4789575b, type: 3}
+    - {fileID: 8300000, guid: 9561de9c06058094f8d0998eacb3416a, type: 3}
+    - {fileID: 8300000, guid: 5f28f2a9b84acfd4083b3dc16e815ca2, type: 3}
+    - {fileID: 8300000, guid: 9e5c170323b65d847a029bb420987a40, type: 3}
+  - name: GuitarRiff
+    audioClips:
+    - {fileID: 8300000, guid: 4c33594115b971b41bb43a45b062102f, type: 3}
+  - name: ZombieWalk
+    audioClips: []
+  - name: ZombieHit
+    audioClips:
+    - {fileID: 8300000, guid: 0439b4942bd1f2c4689eb1e400d8124b, type: 3}
+    - {fileID: 8300000, guid: 7804d1c80699bd2429352f39f2e21ac9, type: 3}
+    - {fileID: 8300000, guid: f34f5e63af63dad47bc090bf5ed40514, type: 3}
+  - name: GhostHit
+    audioClips:
+    - {fileID: 8300000, guid: d697a0b9ce788e14eafeee05434fbabd, type: 3}
+    - {fileID: 8300000, guid: aba48f50e5468ab48abd46b6ab2335cc, type: 3}
+    - {fileID: 8300000, guid: 2174069b36f2c9144a343f72c10f6888, type: 3}
+    - {fileID: 8300000, guid: 5525c0f883bd15941a7e789201a97be2, type: 3}
+  - name: ZombieHittingSomeone
+    audioClips:
+    - {fileID: 8300000, guid: 54525f5b8c8cece4e82851ac5ba0fe0a, type: 3}
+    - {fileID: 8300000, guid: a29c7b4d2ec4a6b4496f1984fdc0ac03, type: 3}
+  - name: GhostHittingSomeone
+    audioClips: []
+  bgSoundSource: {fileID: 5842503473238881142}
+--- !u!82 &5842503473238881142
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3509512794111075757}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: f6fe8ec7d442a5b4b86a8e829e0df75c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.6
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

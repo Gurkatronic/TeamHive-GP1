@@ -153,7 +153,7 @@ public class SoundManager : MonoBehaviour
     }
 
     public void StartMusic() {
-        bgSoundSource.Play();
+        //bgSoundSource.Play(); i dont like this line
     }
 
     public void StopMusic() {

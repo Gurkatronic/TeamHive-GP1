@@ -1,8 +1,8 @@
+using DamageNumbersPro;
 using System;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
-public abstract class EnemyObject : MonoBehaviour
-{
+public abstract class EnemyObject : MonoBehaviour, IDamageable {
     [Serializable]
     protected enum EnemyState {
         Attacking,
@@ -29,6 +29,7 @@ public abstract class EnemyObject : MonoBehaviour
     [Header("Health Settings")]
     [SerializeField] protected int maxHealth = 50;
     [SerializeField] protected int currentHealth;
+    [SerializeField] DamageNumber damageNumberPrefab;
 
     [Header("Search Settings")]
     [SerializeField] protected float playerSearchRange = 5f;
@@ -199,5 +200,25 @@ public abstract class EnemyObject : MonoBehaviour
     protected virtual void EnemyDead() {
         Debug.LogWarning("ENEMY DEAD");
         Destroy(gameObject);
+    }
+
+    public int OnDamage(int damage) {
+        currentHealth -= damage;
+        currentState = EnemyState.Stunned;
+        if (currentHealth < 0) {
+            Debug.Log("Enemy dead");
+            EnemyDead();
+            return 1;
+        }
+        else {
+            TakingDamage(damage);
+            return 0;
+        }
+    }
+
+    public virtual void TakingDamage(int amount) {
+        if(damageNumberPrefab != null) {
+            DamageNumber dmgNumber = damageNumberPrefab.Spawn(transform.position, amount);
+        }
     }
 }

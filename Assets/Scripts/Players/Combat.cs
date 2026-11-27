@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Combat : MonoBehaviour
 {
@@ -7,21 +8,27 @@ public class Combat : MonoBehaviour
     [SerializeField] BoxCollider attackHitbox;
     [SerializeField] AudioSource audioSource;
     public ParticleSystem rageParticleSystem;
+    private Animator animator;
 
     private void Awake()
     {
         playerLogic = GetComponent<PlayerLogic>();
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponentInChildren<Animator>();
     }
-    public void OnAttack()
+    public void OnAttack(InputAction.CallbackContext context)
     {
-        if (playerLogic.stunned) return;
+        if (playerLogic.stunned || playerLogic.knockedDown) return;
 
         if (playerLogic.time - playerLogic.lastAttackTime >= playerLogic.attackCooldown)
         {
-            playerLogic.lastAttackTime = playerLogic.time;
-            EnableHitbox(); // call from animtation later
-            SoundManager.Instance.PlayRandomSound(RandomAudioType.Whiff, audioSource);
+            if (context.started)
+            {
+                animator.SetTrigger("Attack");
+                playerLogic.lastAttackTime = playerLogic.time;
+                EnableHitbox(); // call from animtation later
+                SoundManager.Instance.PlayRandomSound(RandomAudioType.Whiff, audioSource);
+            }
         }
     }
 
